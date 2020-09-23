@@ -33,4 +33,20 @@ class NotesController extends Controller
         Note::destroy($id);
         return redirect()->to('/');
     }
+
+    public function updateNote(Request $request)
+    {
+        $this->validate($request,[
+            'title'=>'required|string',
+            'content'=>'required|string',
+            'id'=>'required|integer|exists:notes,id'
+        ]);
+        $title = $request->get('title');
+        $content = $request->get('content');
+        $id = $request->get('id');
+        $Note = Note::find($id);
+        $Note->title = $title;
+        $Note->content = $content;
+        return $Note->save();
+    }
 }
