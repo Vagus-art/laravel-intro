@@ -8,8 +8,8 @@
             <div class="card-content">{{$note->content}}</div>
         </div>
         <div class="card-footer">
-            <div style="display:flex; justify-content:space-between">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="setForm({{ json_encode($note) }})">
+            <div style="display:flex; justify-content:right">
+                <button type="button" class="btn btn-primary mr-1" data-toggle="modal" data-target="#exampleModal" onclick="setForm({{ json_encode($note) }})">
                     Modificar
                 </button>
                 <form method="POST" action="/{{$note->id}}">

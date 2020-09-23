@@ -37,7 +37,7 @@ class NotesController extends Controller
     public function updateNote(Request $request)
     {
         $this->validate($request,[
-            'title'=>'required|string',
+            'title'=>'required|string|max:200',
             'content'=>'required|string',
             'id'=>'required|integer|exists:notes,id'
         ]);
