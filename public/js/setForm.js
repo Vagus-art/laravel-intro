@@ -1,11 +1,10 @@
-let updateNoteFormData = {
+var updateNoteFormData = {
     title: "",
     content: "",
     id: 0,
 };
-
-const modalFormTitleInput = document.getElementById("modalFormTitleInput");
-const modalFormContentInput = document.getElementById("modalFormContentInput");
+var modalFormTitleInput = document.getElementById("modalFormTitleInput");
+var modalFormContentInput = document.getElementById("modalFormContentInput");
 
 function setForm(note) {
     updateNoteFormData = {
@@ -34,6 +33,10 @@ function saveNote() {
         url: "/",
         data: updateNoteFormData,
     })
-        .then(() => window.location.reload())
-        .catch((err) => console.log(err));
+        .then(function () {
+            return window.location.reload();
+        })
+        ["catch"](function (err) {
+            return console.log(err);
+        });
 }
